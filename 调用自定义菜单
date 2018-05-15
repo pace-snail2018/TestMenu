@@ -1,0 +1,10 @@
+void CTestMenuView::OnRButtonDown(UINT nFlags, CPoint point) 
+{
+	// TODO: Add your message handler code here and/or call default
+	CMenu menu;  
+	menu.LoadMenu(IDR_MENU1);
+	CMenu *pSubMenu=menu.GetSubMenu(0);
+	ClientToScreen(&point);
+	pSubMenu->TrackPopupMenu(TPM_LEFTALIGN|TPM_LEFTBUTTON,point.x,point.y,GetParent());
+	CView::OnRButtonDown(nFlags, point); //这行是IDE自动生成的
+}
